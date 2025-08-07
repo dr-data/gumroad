@@ -43,7 +43,18 @@ export CLOUDFLARE_ZONE_ID="your_zone_id"
 ./bin/cloudflare-next-steps production
 ```
 
-### 2. Individual Component Setup
+### 2. Worker-Only Deployment
+```bash
+# Quick worker deployment
+cd cloudflare-worker
+npm install
+npm run deploy
+
+# Test the deployment
+curl https://gumroad-development.your-account.workers.dev/health
+```
+
+### 3. Individual Component Setup
 
 #### KV Namespaces
 ```bash

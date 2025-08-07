@@ -1,0 +1,22 @@
+[
+  {
+    "binding": "SESSIONS",
+    "namespace": "gumroad-sessions-development",
+    "preview_namespace": "gumroad-sessions-development-preview"
+  },
+  {
+    "binding": "CACHE",
+    "namespace": "gumroad-cache-development",
+    "preview_namespace": "gumroad-cache-development-preview"
+  },
+  {
+    "binding": "FEATURE_FLAGS",
+    "namespace": "gumroad-feature-flags-development",
+    "preview_namespace": "gumroad-feature-flags-development-preview"
+  },
+  {
+    "binding": "ANALYTICS",
+    "namespace": "gumroad-analytics-development",
+    "preview_namespace": "gumroad-analytics-development-preview"
+  }
+]

@@ -1,0 +1,1 @@
+{"rules":[{"pattern":"/api/*","percentage":10,"target":"cloudflare"},{"pattern":"/static/*","percentage":100,"target":"cloudflare"},{"pattern":"/*","percentage":5,"target":"cloudflare"}]}
