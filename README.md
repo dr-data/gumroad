@@ -261,3 +261,56 @@ bin/rake task_name
 We use ESLint for JS, and Rubocop for Ruby. Your editor should support displaying and fixing issues reported by these inline, and CI will automatically check and fix (if possible) these.
 
 If you'd like, you can run `git config --local core.hooksPath .githooks` to check for these locally when committing.
+
+## Cloudflare Deployment
+
+Gumroad can be deployed to Cloudflare's edge platform for improved performance and global distribution.
+
+### Quick Deploy to Cloudflare
+
+1. **Install Wrangler CLI** (already included in package.json):
+   ```bash
+   npm install
+   ```
+
+2. **Authenticate with Cloudflare**:
+   ```bash
+   npx wrangler auth login
+   ```
+
+3. **Build and deploy**:
+   ```bash
+   npm run build:cloudflare
+   npm run deploy:cloudflare
+   ```
+
+### Cloudflare Features
+
+- **Static Asset Hosting**: Cloudflare Pages serves CSS, JS, images with global CDN
+- **Edge Functions**: Cloudflare Workers handle API routes and dynamic content
+- **Caching**: Intelligent caching with KV storage for improved performance
+- **Security**: Built-in DDoS protection, rate limiting, and security headers
+- **Analytics**: Real-time analytics and performance monitoring
+
+### Configuration Files
+
+- `wrangler.toml`: Cloudflare Workers configuration
+- `functions/_worker.js`: Main Worker script for request routing
+- `functions/api/[[path]].js`: API-specific Worker function
+- `public/_routes.json`: Routing configuration for Pages
+- `public/_headers`: HTTP headers for security and caching
+- `public/_redirects`: URL redirects and proxy rules
+
+### Documentation
+
+For detailed deployment instructions, see [docs/cloudflare-deployment.md](docs/cloudflare-deployment.md).
+
+### Environment Variables
+
+Copy `.env.cloudflare.example` to `.env.cloudflare` and configure:
+
+```bash
+CLOUDFLARE_ACCOUNT_ID=your_account_id
+CLOUDFLARE_API_TOKEN=your_api_token
+ORIGIN_SERVER_URL=https://your-existing-server.com
+```

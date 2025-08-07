@@ -1,0 +1,49 @@
+name = "gumroad"
+main = "functions/_worker.js"
+compatibility_date = "2024-08-07"
+compatibility_flags = ["nodejs_compat"]
+
+[env.production]
+name = "gumroad-production"
+routes = ["gumroad.com/*", "*.gumroad.com/*"]
+
+[env.staging]
+name = "gumroad-staging"
+routes = ["staging.gumroad.com/*"]
+
+[env.development]
+name = "gumroad-development"
+
+# Variables for the Worker environment
+[vars]
+ENVIRONMENT = "production"
+
+# Bindings for Cloudflare services
+[[kv_namespaces]]
+binding = "CACHE"
+id = ""
+preview_id = ""
+
+[[r2_buckets]]
+binding = "ASSETS"
+bucket_name = "gumroad-assets"
+preview_bucket_name = "gumroad-assets-preview"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "gumroad-db"
+database_id = ""
+
+# Build configuration
+[build]
+command = "npm run build:cloudflare"
+cwd = "."
+
+# Assets configuration for Pages
+[site]
+bucket = "./public"
+entry-point = "./functions"
+
+# Node.js compatibility
+[node_compat]
+enabled = true

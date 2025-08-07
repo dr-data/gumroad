@@ -110,7 +110,8 @@
     "svgo": "^3.0.2",
     "typescript-eslint": "^8.0.0",
     "webpack-bundle-analyzer": "^4.7.0",
-    "webpack-dev-server": "^5.0.0"
+    "webpack-dev-server": "^5.0.0",
+    "wrangler": "^3.61.0"
   },
   "overrides": {
     "@tiptap/extension-blockquote": "$@tiptap/starter-kit",
@@ -137,10 +138,14 @@
   },
   "scripts": {
     "build": "bin/shakapacker --progress --color",
+    "build:cloudflare": "npm run build && npm run build:assets",
+    "build:assets": "node scripts/build-assets-for-cloudflare.js",
     "watch": "bin/shakapacker --progress --color --watch",
     "analyze": "WEBPACK_ANALYZE=1 bin/shakapacker --progress",
     "lint-fast": "DISABLE_TYPE_CHECKED=1 npx eslint",
     "setup": "bundle exec rails js:export && node lib/findIcons.js",
+    "deploy:cloudflare": "wrangler pages deploy public --project-name gumroad",
+    "preview:cloudflare": "wrangler pages dev public --project-name gumroad",
     "postinstall": "patch-package"
   },
   "repository": {

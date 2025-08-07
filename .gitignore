@@ -12,6 +12,7 @@
 .DS_Store
 .env
 .env.*.local
+.env.cloudflare
 .foreman
 .idea
 .jhw-cache
@@ -60,3 +61,11 @@ docker/local-nginx/certs/*.key
 lib/GeoIP2-City.mmdb
 nomad/
 docs/ssh.md
+
+# Cloudflare deployment files
+.wrangler/
+.dev.vars
+*.log
+wrangler-session-*
+.cloudflare/
+public/deployment-manifest.json

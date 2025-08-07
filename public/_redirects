@@ -1,0 +1,19 @@
+# Cloudflare Pages redirects for Gumroad
+
+# Health check endpoint
+/healthcheck https://origin-server.gumroad.com/healthcheck 200
+
+# API routes - proxy to origin server
+/api/* https://origin-server.gumroad.com/api/:splat 200
+/webhooks/* https://origin-server.gumroad.com/webhooks/:splat 200
+/auth/* https://origin-server.gumroad.com/auth/:splat 200
+/oauth/* https://origin-server.gumroad.com/oauth/:splat 200
+/admin/* https://origin-server.gumroad.com/admin/:splat 200
+
+# Static file fallbacks
+/favicon.ico /favicon.ico 200
+/robots.txt /robots.txt 200
+/sitemap.xml /sitemap.xml 200
+
+# Catch-all for dynamic routes - proxy to origin server
+/* https://origin-server.gumroad.com/:splat 200

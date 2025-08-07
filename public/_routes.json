@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "include": [
+    "/api/*",
+    "/webhooks/*",
+    "/auth/*",
+    "/admin/*",
+    "/oauth/*",
+    "/healthcheck*"
+  ],
+  "exclude": [
+    "/assets/*",
+    "/js/*",
+    "/button/*",
+    "/help/*",
+    "/mobile/*",
+    "/analytics/*",
+    "*.css",
+    "*.js",
+    "*.png",
+    "*.jpg",
+    "*.gif",
+    "*.svg",
+    "*.ico",
+    "*.pdf",
+    "*.html",
+    "*.json",
+    "*.xml",
+    "*.txt"
+  ]
+}
