@@ -57,13 +57,13 @@ def validate_environment(env)
 end
 
 # Parse command line arguments
-environment = ARGV[0] || "development"
-options = ARGV[1..-1] || []
-
-if options.include?("--help")
+if ARGV.include?("--help") || ARGV.include?("help")
   print_usage
   exit 0
 end
+
+environment = ARGV.find { |arg| !arg.start_with?("--") } || "development"
+options = ARGV.select { |arg| arg.start_with?("--") }
 
 validate_environment(environment)
 
