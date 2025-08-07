@@ -82,7 +82,26 @@ npm run dev
 
 ## Deployment
 
-Deployment is handled automatically by the setup scripts, but you can also deploy manually:
+### Automatic Deployment (GitHub Actions)
+
+The worker is automatically deployed via GitHub Actions:
+
+- **Pull Requests**: Deploys to development environment for testing
+- **Main Branch**: Deploys to production environment
+
+#### Required GitHub Secrets
+
+Set these secrets in your repository settings:
+
+```
+CLOUDFLARE_API_TOKEN=your-cloudflare-api-token
+CLOUDFLARE_ACCOUNT_ID=your-cloudflare-account-id
+CLOUDFLARE_DEVELOPMENT_URL=https://gumroad-development.your-account.workers.dev
+```
+
+#### Manual Deployment
+
+You can also deploy manually:
 
 ```bash
 # Deploy to development
