@@ -1,0 +1,20 @@
+{
+  "name": "gumroad-pages",
+  "version": "1.0.0",
+  "description": "Cloudflare Pages frontend for Gumroad",
+  "scripts": {
+    "build": "npm run build:css && npm run build:js",
+    "build:css": "tailwindcss -i ./src/css/input.css -o ./dist/css/styles.css --minify",
+    "build:js": "esbuild ./src/js/app.js --bundle --minify --outfile=./dist/js/app.js",
+    "dev": "concurrently \"npm run watch:css\" \"npm run watch:js\" \"npm run serve\"",
+    "watch:css": "tailwindcss -i ./src/css/input.css -o ./dist/css/styles.css --watch",
+    "watch:js": "esbuild ./src/js/app.js --bundle --watch --outfile=./dist/js/app.js",
+    "serve": "live-server dist --port=3000"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.10",
+    "esbuild": "^0.23.0",
+    "concurrently": "^8.2.2",
+    "live-server": "^1.2.2"
+  }
+}

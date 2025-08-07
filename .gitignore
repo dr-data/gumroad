@@ -60,3 +60,30 @@ docker/local-nginx/certs/*.key
 lib/GeoIP2-City.mmdb
 nomad/
 docs/ssh.md
+# Cloudflare-specific additions to existing .gitignore
+
+# Cloudflare Workers
+cloudflare-workers/node_modules/
+cloudflare-workers/.wrangler/
+cloudflare-workers/dist/
+cloudflare-workers/.env*
+!cloudflare-workers/.env.example
+
+# Cloudflare Pages
+cloudflare-pages/node_modules/
+cloudflare-pages/dist/
+cloudflare-pages/.cache/
+cloudflare-pages/.env*
+!cloudflare-pages/.env.example
+
+# Wrangler
+.wrangler/
+wrangler.toml.backup
+
+# Build outputs
+*.log
+.DS_Store
+.vscode/settings.json
+
+# Environment secrets
+.dev.vars

@@ -1,0 +1,41 @@
+name = "gumroad-api"
+main = "cloudflare-workers/src/index.js"
+compatibility_date = "2024-08-07"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+ENVIRONMENT = "production"
+
+# KV Namespace bindings
+[[kv_namespaces]]
+binding = "KV_SESSIONS"
+id = "your_sessions_kv_namespace_id"
+preview_id = "your_sessions_kv_namespace_preview_id"
+
+[[kv_namespaces]]
+binding = "KV_CACHE"
+id = "your_cache_kv_namespace_id"
+preview_id = "your_cache_kv_namespace_preview_id"
+
+[[kv_namespaces]]
+binding = "KV_PRODUCTS"
+id = "your_products_kv_namespace_id"
+preview_id = "your_products_kv_namespace_preview_id"
+
+# R2 Storage bindings for file uploads
+[[r2_buckets]]
+binding = "ASSETS_BUCKET"
+bucket_name = "gumroad-assets"
+preview_bucket_name = "gumroad-assets-preview"
+
+# Environment-specific configurations
+[env.development]
+name = "gumroad-api-dev"
+vars = { ENVIRONMENT = "development" }
+
+[env.staging]
+name = "gumroad-api-staging"
+vars = { ENVIRONMENT = "staging" }
+
+# External service URLs (will need to be configured)
+# DATABASE_URL, REDIS_URL, etc. should be set as secrets

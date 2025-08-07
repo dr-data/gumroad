@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Product - Gumroad</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="/" class="text-xl font-bold text-gray-800">Gumroad</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="/" class="text-gray-600 hover:text-gray-900">← Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Page -->
+    <div class="max-w-6xl mx-auto px-4 py-8">
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Product Image -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="aspect-w-16 aspect-h-9 bg-gradient-to-br from-purple-400 to-blue-500 rounded-lg flex items-center justify-center">
+                    <div class="text-white text-center">
+                        <svg class="w-24 h-24 mx-auto mb-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                        <p class="text-lg font-semibold">Digital Product Preview</p>
+                    </div>
+                </div>
+                
+                <!-- Product Gallery -->
+                <div class="mt-6 grid grid-cols-4 gap-2">
+                    <div class="aspect-w-1 aspect-h-1 bg-gray-200 rounded border"></div>
+                    <div class="aspect-w-1 aspect-h-1 bg-gray-200 rounded border"></div>
+                    <div class="aspect-w-1 aspect-h-1 bg-gray-200 rounded border"></div>
+                    <div class="aspect-w-1 aspect-h-1 bg-gray-200 rounded border"></div>
+                </div>
+            </div>
+
+            <!-- Product Details -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="mb-6">
+                    <h1 id="productName" class="text-3xl font-bold text-gray-900 mb-2">
+                        Loading Product...
+                    </h1>
+                    <p class="text-gray-600 mb-4">
+                        by <span id="sellerName" class="text-purple-600 font-medium">Loading...</span>
+                    </p>
+                    <p id="productDescription" class="text-gray-700 leading-relaxed">
+                        Loading product description...
+                    </p>
+                </div>
+
+                <!-- Price -->
+                <div class="border-t border-gray-200 pt-6 mb-6">
+                    <div class="flex items-center justify-between">
+                        <span class="text-lg text-gray-600">Price:</span>
+                        <span id="productPrice" class="text-3xl font-bold text-gray-900">$--</span>
+                    </div>
+                </div>
+
+                <!-- Purchase Button -->
+                <button id="purchaseBtn" 
+                        class="w-full bg-purple-600 text-white py-3 px-6 rounded-lg text-lg font-semibold hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 disabled:opacity-50 disabled:cursor-not-allowed">
+                    <span class="flex items-center justify-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                        </svg>
+                        I want this!
+                    </span>
+                </button>
+
+                <!-- Features -->
+                <div class="mt-6 border-t border-gray-200 pt-6">
+                    <h3 class="text-lg font-semibold mb-4">What you'll get:</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            Instant download after purchase
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            License key for verification
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            30-day money back guarantee
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Payment Info -->
+                <div class="mt-6 text-sm text-gray-500">
+                    <p>💳 Secure payment powered by Cloudflare</p>
+                    <p>🔒 Your payment information is protected</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Information -->
+        <div class="mt-12 bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-2xl font-bold mb-6">About this product</h2>
+            <div class="prose max-w-none">
+                <p class="text-gray-700 leading-relaxed">
+                    This is a demonstration product showcasing how Gumroad's functionality can be migrated to 
+                    Cloudflare's platform. The product data is stored in Cloudflare KV and served through 
+                    Cloudflare Workers for optimal performance.
+                </p>
+                
+                <h3 class="text-lg font-semibold mt-6 mb-3">Technical Features</h3>
+                <ul class="list-disc pl-6 space-y-1">
+                    <li>Served from Cloudflare's global edge network</li>
+                    <li>Sub-50ms response times worldwide</li>
+                    <li>Automatic scaling and DDoS protection</li>
+                    <li>Real-time license verification</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Purchase Modal -->
+    <div id="purchaseModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+            <h3 class="text-2xl font-bold mb-6">Complete your purchase</h3>
+            
+            <form id="purchaseForm">
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">
+                        Email Address
+                    </label>
+                    <input type="email" id="buyerEmail" required 
+                           class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                           placeholder="your@email.com">
+                </div>
+                
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">
+                        Payment Method
+                    </label>
+                    <select id="paymentMethod" required 
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500">
+                        <option value="">Select payment method</option>
+                        <option value="card">Credit Card</option>
+                        <option value="paypal">PayPal</option>
+                    </select>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <button type="button" id="cancelPurchase"
+                            class="flex-1 bg-gray-300 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-400">
+                        Cancel
+                    </button>
+                    <button type="submit" 
+                            class="flex-1 bg-purple-600 text-white py-2 px-4 rounded-md hover:bg-purple-700">
+                        Purchase Now
+                    </button>
+                </div>
+            </form>
+            
+            <div id="purchaseStatus" class="mt-4 text-center hidden"></div>
+        </div>
+    </div>
+
+    <script>
+        class ProductPage {
+            constructor() {
+                this.apiBaseUrl = 'https://your-workers-subdomain.your-account.workers.dev';
+                this.productPermalink = this.getProductPermalink();
+                this.init();
+            }
+
+            getProductPermalink() {
+                // In a real implementation, get from URL params
+                return 'demo-product';
+            }
+
+            async init() {
+                await this.loadProduct();
+                this.setupEventListeners();
+            }
+
+            async loadProduct() {
+                try {
+                    // Create demo product data since we don't have a real backend yet
+                    const demoProduct = {
+                        product: {
+                            id: 'demo_product_123',
+                            name: 'Cloudflare Migration Starter Kit',
+                            description: 'A comprehensive guide and code templates for migrating web applications to Cloudflare\'s serverless platform. Includes Workers, Pages, KV storage examples, and deployment scripts.',
+                            permalink: 'cloudflare-migration-kit',
+                            price: 29.99,
+                            currency: 'USD',
+                            is_published: true,
+                            seller: {
+                                id: 'demo_seller',
+                                display_name: 'CloudDev Pro',
+                                profile_url: 'https://gumroad.com/clouddev'
+                            }
+                        }
+                    };
+
+                    this.displayProduct(demoProduct.product);
+                } catch (error) {
+                    console.error('Error loading product:', error);
+                    this.showError('Failed to load product information');
+                }
+            }
+
+            displayProduct(product) {
+                document.getElementById('productName').textContent = product.name;
+                document.getElementById('sellerName').textContent = product.seller.display_name;
+                document.getElementById('productDescription').textContent = product.description;
+                document.getElementById('productPrice').textContent = `$${product.price}`;
+                
+                document.getElementById('purchaseBtn').disabled = false;
+                this.currentProduct = product;
+            }
+
+            setupEventListeners() {
+                const purchaseBtn = document.getElementById('purchaseBtn');
+                const purchaseModal = document.getElementById('purchaseModal');
+                const cancelPurchase = document.getElementById('cancelPurchase');
+                const purchaseForm = document.getElementById('purchaseForm');
+
+                purchaseBtn.addEventListener('click', () => {
+                    purchaseModal.classList.remove('hidden');
+                    purchaseModal.classList.add('flex');
+                });
+
+                cancelPurchase.addEventListener('click', () => {
+                    purchaseModal.classList.add('hidden');
+                    purchaseModal.classList.remove('flex');
+                });
+
+                purchaseForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.handlePurchase();
+                });
+            }
+
+            async handlePurchase() {
+                const email = document.getElementById('buyerEmail').value;
+                const paymentMethod = document.getElementById('paymentMethod').value;
+                const statusDiv = document.getElementById('purchaseStatus');
+
+                statusDiv.textContent = 'Processing purchase...';
+                statusDiv.className = 'mt-4 text-center text-blue-600';
+                statusDiv.classList.remove('hidden');
+
+                try {
+                    // Simulate API call
+                    const response = await fetch(`${this.apiBaseUrl}/checkout/${this.currentProduct.permalink}/purchase`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            email,
+                            payment_method: paymentMethod,
+                            price: this.currentProduct.price,
+                        }),
+                    });
+
+                    const data = await response.json();
+
+                    if (data.success) {
+                        statusDiv.innerHTML = `
+                            <div class="text-green-600">
+                                <p class="font-semibold">Purchase successful!</p>
+                                <p class="text-sm mt-2">License: ${data.purchase.license_key}</p>
+                                <p class="text-sm">Check your email for download link</p>
+                            </div>
+                        `;
+                    } else {
+                        statusDiv.textContent = data.error || 'Purchase failed';
+                        statusDiv.className = 'mt-4 text-center text-red-600';
+                    }
+                } catch (error) {
+                    console.error('Purchase error:', error);
+                    statusDiv.textContent = 'Network error. Please try again.';
+                    statusDiv.className = 'mt-4 text-center text-red-600';
+                }
+            }
+
+            showError(message) {
+                document.getElementById('productName').textContent = 'Error Loading Product';
+                document.getElementById('productDescription').textContent = message;
+                document.getElementById('purchaseBtn').disabled = true;
+            }
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new ProductPage();
+        });
+    </script>
+</body>
+</html>

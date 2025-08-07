@@ -1,0 +1,29 @@
+{
+  "name": "gumroad-cloudflare-workers",
+  "version": "1.0.0",
+  "description": "Cloudflare Workers API for Gumroad",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "deploy:staging": "wrangler deploy --env staging",
+    "tail": "wrangler tail",
+    "test": "vitest",
+    "test:coverage": "vitest --coverage"
+  },
+  "dependencies": {
+    "itty-router": "^4.0.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240821.1",
+    "@types/node": "^24.2.0",
+    "@vitest/coverage-v8": "^2.0.0",
+    "miniflare": "^4.20250803.0",
+    "vitest": "^2.0.0",
+    "wrangler": "^3.72.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
