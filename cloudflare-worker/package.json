@@ -1,0 +1,24 @@
+{
+  "name": "gumroad-cloudflare-worker",
+  "version": "1.0.0",
+  "description": "Cloudflare Worker for Gumroad application",
+  "main": "src/worker.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "deploy:staging": "wrangler deploy --env staging",
+    "deploy:production": "wrangler deploy --env production",
+    "test": "wrangler dev --local",
+    "build": "echo 'Worker uses direct deployment - no build step needed'",
+    "setup:kv": "../ci_scripts/setup_cloudflare_kv.sh",
+    "logs": "wrangler tail",
+    "logs:staging": "wrangler tail --env staging",
+    "logs:production": "wrangler tail --env production"
+  },
+  "devDependencies": {
+    "wrangler": "^3.60.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

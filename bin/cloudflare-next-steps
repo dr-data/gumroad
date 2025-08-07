@@ -1,0 +1,73 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# Try to load Rails environment, fallback to standalone mode
+begin
+  require_relative "../config/environment"
+rescue LoadError
+  # Fallback for standalone execution - load service directly
+  $LOAD_PATH.unshift(File.expand_path("../app/services/onetime", __dir__))
+  require "cloudflare_next_steps_setup"
+end
+
+def print_usage
+  puts <<~USAGE
+    Usage: #{$0} [ENVIRONMENT] [OPTIONS]
+    
+    ENVIRONMENT: production, staging, development (default: development)
+    
+    OPTIONS:
+      --dry-run        Show what would be done without making changes
+      --skip-checks    Skip prerequisite validation
+      --help           Show this help message
+    
+    EXAMPLES:
+      #{$0} development --dry-run
+      #{$0} staging
+      #{$0} production
+    
+    ENVIRONMENT VARIABLES:
+      CLOUDFLARE_API_TOKEN    - Required: Your Cloudflare API token
+      CLOUDFLARE_ACCOUNT_ID   - Required: Your Cloudflare account ID  
+      CLOUDFLARE_ZONE_ID      - Required: Your Cloudflare zone ID
+      DRY_RUN                 - Optional: Set to 'true' for dry run mode
+  USAGE
+end
+
+def validate_environment(env)
+  valid_environments = %w[development staging production]
+  unless valid_environments.include?(env)
+    puts "❌ Invalid environment: #{env}"
+    puts "Valid environments: #{valid_environments.join(', ')}"
+    exit 1
+  end
+end
+
+# Parse command line arguments
+environment = ARGV[0] || "development"
+options = ARGV[1..-1] || []
+
+if options.include?("--help")
+  print_usage
+  exit 0
+end
+
+validate_environment(environment)
+
+# Set environment variables based on options
+ENV["DRY_RUN"] = "true" if options.include?("--dry-run")
+ENV["SKIP_CHECKS"] = "true" if options.include?("--skip-checks")
+
+puts "🔧 Cloudflare Next Steps Setup Script"
+puts "Environment: #{environment}"
+puts "Dry Run: #{ENV['DRY_RUN'] == 'true' ? 'Yes' : 'No'}"
+puts
+
+begin
+  setup = CloudflareNextStepsSetup.new(environment)
+  setup.execute
+rescue => e
+  puts "\n💥 Script failed with error: #{e.message}"
+  puts e.backtrace.first(5).join("\n") if ENV["DEBUG"]
+  exit 1
+end

@@ -1,0 +1,60 @@
+# Cloudflare Worker Configuration for Gumroad
+# This is a template - it will be customized by the setup script
+
+name = "gumroad-development"
+main = "src/worker.js"
+compatibility_date = "2024-08-07"
+node_compat = true
+
+# KV namespace bindings (will be populated by setup script)
+# [[kv_namespaces]]
+# binding = "SESSIONS"
+# id = ""
+# preview_id = ""
+
+# [[kv_namespaces]] 
+# binding = "CACHE"
+# id = ""
+# preview_id = ""
+
+# [[kv_namespaces]]
+# binding = "FEATURE_FLAGS"
+# id = ""
+# preview_id = ""
+
+# [[kv_namespaces]]
+# binding = "ANALYTICS"
+# id = ""
+# preview_id = ""
+
+# Environment variables
+[vars]
+ENVIRONMENT = "development"
+
+# Environment-specific configurations
+[env.development]
+name = "gumroad-development"
+[env.development.vars]
+ENVIRONMENT = "development"
+MAIN_APP_URL = "http://localhost:3000"
+
+[env.staging]
+name = "gumroad-staging"  
+[env.staging.vars]
+ENVIRONMENT = "staging"
+MAIN_APP_URL = "https://staging.gumroad.com"
+
+[env.production]
+name = "gumroad-production"
+[env.production.vars]
+ENVIRONMENT = "production"
+MAIN_APP_URL = "https://gumroad.com"
+
+# Routes (for custom domains)
+# [[routes]]
+# pattern = "app.gumroad.com/*"
+# zone_name = "gumroad.com"
+
+# [[routes]]
+# pattern = "staging-app.gumroad.com/*"
+# zone_name = "gumroad.com"

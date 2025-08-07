@@ -1,0 +1,20 @@
+# KV namespace bindings
+[[kv_namespaces]]
+binding = "SESSIONS"
+id = "gumroad-sessions-development"
+preview_id = "gumroad-sessions-development-preview"
+
+[[kv_namespaces]]
+binding = "CACHE"
+id = "gumroad-cache-development"
+preview_id = "gumroad-cache-development-preview"
+
+[[kv_namespaces]]
+binding = "FEATURE_FLAGS"
+id = "gumroad-feature-flags-development"
+preview_id = "gumroad-feature-flags-development-preview"
+
+[[kv_namespaces]]
+binding = "ANALYTICS"
+id = "gumroad-analytics-development"
+preview_id = "gumroad-analytics-development-preview"

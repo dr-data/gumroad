@@ -140,7 +140,12 @@
     "analyze": "WEBPACK_ANALYZE=1 bin/shakapacker --progress",
     "lint-fast": "DISABLE_TYPE_CHECKED=1 npx eslint",
     "setup": "bundle exec rails js:export && node lib/findIcons.js",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "worker:dev": "cd cloudflare-worker && npm run dev",
+    "worker:deploy": "cd cloudflare-worker && npm run deploy",
+    "worker:deploy:staging": "cd cloudflare-worker && npm run deploy:staging",
+    "worker:deploy:production": "cd cloudflare-worker && npm run deploy:production",
+    "worker:setup": "./ci_scripts/setup_cloudflare_kv.sh"
   },
   "repository": {
     "type": "git",
